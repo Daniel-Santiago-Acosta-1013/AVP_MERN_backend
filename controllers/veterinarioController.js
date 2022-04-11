@@ -1,11 +1,12 @@
-
-
 const registar = (req, res) => {
-    res.send("desde api/veterinarios");
+
+    console.log(req.body);
+
+    res.json({ msg: "Resgistrando usuario..." });
 };
 const perfil = (req, res) => {
-    res.send("desde api/veterinarios/perfil");
-}
+    res.json({ msg: "Mostrando perfil..." });
+};
 
 export {
     registar,
