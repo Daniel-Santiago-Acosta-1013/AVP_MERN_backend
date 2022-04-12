@@ -45,11 +45,17 @@ const confirmar = async (req, res) => {
     } catch (error) {
         console.log(error);
     }
+};
 
-}
+const autenticar = (req, res) => {
+    console.log(req.body);
+
+    res.json({ msg: "Autenticado" });
+};
 
 export {
     registar,
     perfil,
-    confirmar
+    confirmar,
+    autenticar
 }; 
