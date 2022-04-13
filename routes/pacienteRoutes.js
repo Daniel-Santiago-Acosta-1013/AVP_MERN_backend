@@ -3,12 +3,13 @@ const router = express.Router();
 
 import {
     agregarPaciente,
-    obtenerPaciente
+    obtenerPacientes
 } from "../controllers/PacienteController.js";
 import checkAuth from '../middleware/authMiddleware.js';
 
-router.route('/')
+router
+    .route('/')
     .post(checkAuth, agregarPaciente)
-    .get(obtenerPaciente)
+    .get(checkAuth, obtenerPacientes)
 
 export default router;

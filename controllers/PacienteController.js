@@ -1,3 +1,4 @@
+import { request } from "express";
 import Paciente from "../models/Paciente.js";
 
 const agregarPaciente = async (req, res) => {
@@ -13,11 +14,15 @@ const agregarPaciente = async (req, res) => {
     }
 };
 
-const obtenerPaciente = (req, res) => {
+const obtenerPacientes = async (req, res) => {
+    const pacientes = await Paciente.find()
+        .where("veterinario")
+        .equals(req.veterinario);
 
+    res.json(pacientes);
 };
 
 export {
     agregarPaciente,
-    obtenerPaciente
+    obtenerPacientes
 };
